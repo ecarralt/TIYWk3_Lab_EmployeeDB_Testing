@@ -1,3 +1,6 @@
+require './employee'
+
+
 class Department
 
   attr_accessor :name, :employee_list
@@ -15,13 +18,22 @@ class Department
     if new_employees.class == String
       @employee_list << new_employees
     elsif new_employees.class == Array
+
       new_employees.each do |employee|
         @employee_list << employee
       end
+
     else
     end
+  end
+
+  def apply_raise(dept, amt)
+
+    employee_list.each do |employee|
+      if 
 
   end
+
 end
 
 
