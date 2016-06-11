@@ -45,7 +45,7 @@ class EmplDBTest < MiniTest::Test
     assert_equal ["Michael Jordan", "Scottie Pippen", "Michael Johnson"], dept.employee_list
   end
 
-  ####Employee creation testing#####
+####Employee creation testing#####
   def test_new_empl_name_created
       empl = Employee.new
       employee_details = {name: "Michael Jordan", email: "michael@nike.com", ph: "723-2323-2323", salary: 100 }
@@ -70,8 +70,6 @@ class EmplDBTest < MiniTest::Test
       empl.create_empl(employee_details)
       assert_equal 100, empl.salary
   end
-
-
   def test_added_review
     empl = Employee.new
     employee_details = {name: "Michael Jordan", email: "michael@nike.com", ph: "723-2323-2323", salary: 100 }
@@ -87,7 +85,6 @@ class EmplDBTest < MiniTest::Test
     Second, when discussing new requirements with project managers, less of the information is retained by Zeke long-term than is expected.  This has a few negative consequences: 1) time is spent developing features that are not useful and need to be re-run, 2) bugs are introduced in the code and not caught because the tests lack the same information, and 3) clients are told that certain features are complete when they are inadequate.  This communication limitation could be the fault of project management, but given that other developers appear to retain more information, this is worth discussing further.", empl.reviews
 
   end
-
   def test_performance_added
     empl = Employee.new
     employee_details = {name: "Michael Jordan", email: "michael@nike.com", ph: "723-2323-2323", salary: 100 }
@@ -96,8 +93,6 @@ class EmplDBTest < MiniTest::Test
     empl.add_performance(performance)
     assert_equal "Satisfactory", empl.performance
   end
-
-
 
 ###Data Operations Testing#####
 
@@ -111,7 +106,6 @@ class EmplDBTest < MiniTest::Test
       salarysum = employee_details[:salary] + employee_details2[:salary]
       assert_equal 150, salarysum
     end
-    
 
     def test_gave_perc_raise
       empl = Employee.new
@@ -141,14 +135,16 @@ class EmplDBTest < MiniTest::Test
       empl3.add_performance("Satisfactory")
 
       #Create department and add employees to it
-      dept = Department.new
-      dept.create_dept("Accounting")
+      acct_dept = Department.new
+      acct_dept.create_dept("Accounting")
       employee_list = [empl, empl2, empl3]
 
-      #Add raise to a department
-      dept.apply_raise("Accounting", 50, employee_list)
+      acct_dept.add_employees(employee_list)
 
-      #Hash the employee salaries after the raise
+      #Add raise to a department and distribute accordingly
+      acct_dept.apply_raise(50)
+
+      #Create an array of the employee salaries after the raise (to compare all salaries at once)
       salaries_actual = employee_list.map do |employee|
         employee.salary
       end

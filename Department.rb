@@ -24,15 +24,15 @@ class Department
     end
   end
 
-  def apply_raise(dept, amt, employee_list)
+  def apply_raise(raise_amt)
 
     good_performers = employee_list.select do |employee|
       employee.performance == "Satisfactory"
     end
 
-    howmany = good_performers.count
+    how_many = good_performers.count
 
-    add_to_each = amt / howmany
+    add_to_each = raise_amt / how_many
 
     good_performers.each do |employee|
       employee.salary += add_to_each
