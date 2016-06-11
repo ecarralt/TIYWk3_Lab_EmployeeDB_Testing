@@ -77,7 +77,7 @@ class EmplDBTest < MiniTest::Test
       empl.create_empl(employee_details)
       empl2 = Employee.new
       employee_details2 = {name: "Scottie Pippen", email: "pippen@nike.com", ph: "719-1919-1919", salary: 50 }
-      empl.create_empl(employee_details2)
+      empl2.create_empl(employee_details2)
       salarysum = employee_details[:salary] + employee_details2[:salary]
       assert_equal 150, salarysum
     end
@@ -123,10 +123,10 @@ class EmplDBTest < MiniTest::Test
       empl.create_empl(employee_details)
       empl2 = Employee.new
       employee_details2 = {name: "Scottie Pippen", email: "pippen@nike.com", ph: "719-1919-1919", salary: 50 }
-      empl.create_empl(employee_details2)
+      empl2.create_empl(employee_details2)
       empl3 = Employee.new
-      employee_details2 = {name: "Michael Johnson", email: "jj@nike.com", ph: "788-8888-8888", salary: 25 }
-      empl.create_empl(employee_details2)
+      employee_details3 = {name: "Michael Johnson", email: "jj@nike.com", ph: "788-8888-8888", salary: 25 }
+      empl3.create_empl(employee_details3)
 
       #Add performances
 

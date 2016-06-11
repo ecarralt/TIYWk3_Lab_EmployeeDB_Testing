@@ -1,4 +1,4 @@
-require_relative 'employee'
+# require './employee'
 
 # require_relative 'employee'
 
@@ -46,18 +46,18 @@ class Department
 
 end
 
-
-Employee.initialize
-
-empl = Employee.new
+#
+# empl = Employee.new
+#
+#
 # employee_details = {name: "Michael Jordan", email: "michael@nike.com", ph: "723-2323-2323", salary: 100 }
 # empl.create_empl(employee_details)
 # empl2 = Employee.new
 # employee_details2 = {name: "Scottie Pippen", email: "pippen@nike.com", ph: "719-1919-1919", salary: 50 }
-# empl.create_empl(employee_details2)
+# empl2.create_empl(employee_details2)
 # empl3 = Employee.new
-# employee_details2 = {name: "Michael Johnson", email: "jj@nike.com", ph: "788-8888-8888", salary: 25 }
-# empl.create_empl(employee_details2)
+# employee_details3 = {name: "Michael Johnson", email: "jj@nike.com", ph: "788-8888-8888", salary: 25 }
+# empl3.create_empl(employee_details3)
 #
 # empl.add_performance("Satisfactory")
 # empl2.add_performance("Unsatisfactory")
@@ -67,10 +67,29 @@ empl = Employee.new
 # dept.create_dept("Accounting")
 # employee_list = [empl, empl2, empl3]
 #
-# print employee_list
-
-
-
+# puts employee_list.inspect
+#
+# puts "===="
+#
+# good_performers = employee_list.select do |employee|
+#   employee.performance == "Satisfactory"
+# end
+#
+# puts good_performers.inspect
+#
+# puts "===="
+#
+#
+# howmany = good_performers.count
+#
+# add_to_each = 50 / howmany
+#
+# good_performers.each do |employee|
+#   employee.salary += add_to_each
+# end
+#
+# puts good_performers.inspect
+#
 
 # dept = Department.new
 #

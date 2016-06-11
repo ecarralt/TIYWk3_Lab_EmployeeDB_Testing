@@ -1,4 +1,4 @@
-require './department'
+# require './department'
 
 class Employee
 
