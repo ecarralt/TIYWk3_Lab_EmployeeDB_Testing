@@ -1,5 +1,3 @@
-# require './department'
-
 class Employee
 
   attr_accessor :name, :email, :ph, :salary, :reviews, :performance
@@ -25,13 +23,3 @@ class Employee
   end
 
 end
-
-# employee_a = Employee.new
-#
-# details= {name: "Michael Jordan", email: "michael@nike.com", ph: "723-2323-2323", salary: 100 }
-# employee_a.create_empl(details)
-# performance = "Satisfactory"
-#
-# employee_a.add_performance(performance)
-#
-# print employee_a.inspect

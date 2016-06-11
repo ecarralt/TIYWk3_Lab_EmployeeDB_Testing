@@ -1,7 +1,3 @@
-# require './employee'
-
-# require_relative 'employee'
-
 class Department
 
   attr_accessor :name, :employee_list
