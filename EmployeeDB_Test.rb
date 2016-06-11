@@ -22,11 +22,31 @@ class EmplDBTest < MiniTest::Test
       assert_equal [], dept.employee_list
   end
 
-  def test_added_employees
+  def test_added_employees_string
     dept = Department.new
     dept.create_dept("Accounting")
     dept.add_employees("Michael Jordan")
     assert_equal ["Michael Jordan"], dept.employee_list
+  end
+
+  def test_added_employees_arrayofmany
+    dept = Department.new
+    dept.create_dept("Accounting")
+
+    empl = Employee.new
+    employee_details = {name: "Michael Jordan", email: "michael@nike.com", ph: "723-2323-2323", salary: 100 }
+    empl.create_empl(employee_details)
+    empl2 = Employee.new
+    employee_details2 = {name: "Scottie Pippen", email: "pippen@nike.com", ph: "719-1919-1919", salary: 50 }
+    empl2.create_empl(employee_details2)
+    empl3 = Employee.new
+    employee_details3 = {name: "Michael Johnson", email: "jj@nike.com", ph: "788-8888-8888", salary: 25 }
+    empl3.create_empl(employee_details3)
+
+    employee_list_add = [empl, empl2, empl3]
+    dept.add_employees(employee_list_add)
+
+    assert_equal [empl, empl2, empl3], dept.employee_list
   end
 
   def test_added_two_employees
@@ -137,11 +157,12 @@ class EmplDBTest < MiniTest::Test
       #Create department and add employees to it
       acct_dept = Department.new
       acct_dept.create_dept("Accounting")
-      employee_list = [empl, empl2, empl3]
 
+
+      employee_list = [empl, empl2, empl3]
       acct_dept.add_employees(employee_list)
 
-      #Add raise to a department and distribute accordingly
+      #Add raise to the specific department (with employees assigned to it) and distribute accordingly
       acct_dept.apply_raise(50)
 
       #Create an array of the employee salaries after the raise (to compare all salaries at once)
