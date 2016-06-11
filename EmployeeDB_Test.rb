@@ -137,15 +137,14 @@ class EmplDBTest < MiniTest::Test
       #Create department and add employees to it
       dept = Department.new
       dept.create_dept("Accounting")
-      employee_list = ["Michael Jordan", "Scottie Pippen", "Michael Johnson"]
+      employee_list = [empl, empl2, empl3]
 
       #Add raise to a department
-      dept.apply_raise("Accounting", 50)
+      dept.apply_raise("Accounting", 50, employee_list)
 
       #Hash the employee salaries after the raise
-      employees = [empl, empl2, empl3]
 
-      salaries_actual = employees.map do |employee|
+      salaries_actual = employee_list.map do |employee|
         employee.salary
       end
 
